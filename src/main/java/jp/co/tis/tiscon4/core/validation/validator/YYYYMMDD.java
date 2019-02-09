@@ -16,7 +16,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 /**
  * 入力値が指定した形式の日付文字列であるかをバリデーションするクラス。
  * <p/>
- * 日付フォーマットのデフォルト値は「yyyy/MM/dd」である。
+ * 日付フォーマットのデフォルト値は「yyyyMMdd」である。
  *
  * @author Indo Yoshihiro
  *

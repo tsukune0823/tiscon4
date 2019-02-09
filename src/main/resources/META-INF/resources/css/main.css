@@ -145,6 +145,15 @@ ul.label {
     padding:0;
 }
 
+.index-ladytext{
+   color:#B40404;
+   text-align:center;
+   font-size:25px;
+   margin-top:70px;
+   text-decoration : underline;
+   padding:0;
+}
+
 .index-button {
     display: inline-block;
     margin: 0 .25em 0 0;

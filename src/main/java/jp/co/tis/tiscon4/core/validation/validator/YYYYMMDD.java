@@ -19,6 +19,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * 日付フォーマットのデフォルト値は「yyyy/MM/dd」である。
  *
  * @author Indo Yoshihiro
+ *
  */
 @Documented
 @Constraint(validatedBy = YYYYMMDDValidator.class)
@@ -52,7 +53,7 @@ public @interface YYYYMMDD {
      *
      * @return 指定されたフォーマット
      */
-    String allowFormat() default "yyyy/MM/dd";
+    String allowFormat() default "yyyyMMdd";//"yyyy/MM/dd"から/を除きました。
 
     /** 複数指定用のアノテーション */
     @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})

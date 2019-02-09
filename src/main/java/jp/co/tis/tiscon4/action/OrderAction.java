@@ -84,7 +84,7 @@ public class OrderAction {
     @UseToken
     public HttpResponse inputJob(HttpRequest req, ExecutionContext ctx) {
         UserForm form = ctx.getRequestScopedVar("form");
-        InsuranceOrder insOrder = SessionUtil.get(ctx, "insOrder");
+        InsuranceOrder insOrder = SessionUtil.get(ctx, "insOrder");  //insOrderの宣言
 
         // treatLadyは女性しか加入できないため、性別選択チェックを行う。
         if (insOrder.getInsuranceType().equals("treatLady") && form.getGender().equals("male")) {
@@ -92,13 +92,21 @@ public class OrderAction {
             throw new ApplicationException(message);
         }
 
-        UniversalDao.findAllBySqlFile(ZipcodeDto.class, "ZIPCODE_LIST");
+        // 学生とかだったら、complited.htmlに遷移
+        if (insOrder.getInsuranceType().equals("treatLady") && form.getGender().equals("male")) {
+            Message message = ValidationUtil.createMessageForProperty("gender", "tiscon4.order.inputUser.error.gender");
+            throw new ApplicationException(message);
+        }
 
+
+        //formからinsOrderにコピー
         BeanUtil.copy(form, insOrder);
 
+        //入力内容を保存
         ctx.setRequestScopedVar("form", new JobForm());
         ctx.setRequestScopedVar("industryTypes", IndustryType.values());
 
+        //次のページを呼び出す(お勤め先入力ページ)
         return new HttpResponse("job.html");
     }
 
@@ -134,7 +142,10 @@ public class OrderAction {
 
         BeanUtil.copy(form, insOrder);
 
+        //データベースの接続
+        UniversalDao.findAllBySqlFile(ZipcodeDto.class, "ZIPCODE_LIST");
         UniversalDao.insert(insOrder);
+
 
         return new HttpResponse("redirect://completed");
     }
@@ -166,6 +177,7 @@ public class OrderAction {
 
     /**
      * 加入条件確認画面に戻る。
+     *
      *
      * @param req リクエストコンテキスト
      * @param ctx HTTPリクエストの処理に関連するサーバ側の情報

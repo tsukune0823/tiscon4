@@ -116,6 +116,7 @@ public class UserForm implements Serializable {
     }
 
     public String getDateOfBirth() {
+        dateOfBirth = changeNumFullToHalf(dateOfBirth);
         return dateOfBirth;
     }
 
@@ -123,9 +124,7 @@ public class UserForm implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getGender() {
-        return gender;
-    }
+    public String getGender() { return gender; }
 
     public void setGender(String gender) {
         this.gender = gender;
@@ -252,5 +251,28 @@ public class UserForm implements Serializable {
         }
         return true;
     }
+
+    /**
+     * <p>[概 要] 全角数字⇒半角数字への変換</p>
+     * <p>[詳 細] </p>
+     * <p>[備 考] </p>
+     * @param  str 変換対象文字列
+     * @return 変換後文字列
+     */
+    public static String changeNumFullToHalf(String str) {
+        String result = null;
+        if(str != null) {
+            StringBuilder sb = new StringBuilder(str);
+            for (int i = 0; i < sb.length(); i++) {
+                int c = (int) sb.charAt(i);
+                if (c >= 0xFF10 && c <= 0xFF19) {
+                    sb.setCharAt(i, (char) (c - 0xFEE0));
+                }
+            }
+            result = sb.toString();
+        }
+        return result;
+    }
+
 
 }

@@ -25,6 +25,8 @@ import nablarch.fw.web.HttpRequest;
 import nablarch.fw.web.HttpResponse;
 import nablarch.fw.web.interceptor.OnError;
 
+
+
 /**
  * 保険申し込みに関するActionクラス.
  *
@@ -92,13 +94,6 @@ public class OrderAction {
             throw new ApplicationException(message);
         }
 
-        // 学生とかだったら、complited.htmlに遷移
-        if (insOrder.getInsuranceType().equals("treatLady") && form.getGender().equals("male")) {
-            Message message = ValidationUtil.createMessageForProperty("gender", "tiscon4.order.inputUser.error.gender");
-            throw new ApplicationException(message);
-        }
-
-
         //formからinsOrderにコピー
         BeanUtil.copy(form, insOrder);
 
@@ -106,8 +101,17 @@ public class OrderAction {
         ctx.setRequestScopedVar("form", new JobForm());
         ctx.setRequestScopedVar("industryTypes", IndustryType.values());
 
-        //次のページを呼び出す(お勤め先入力ページ)
-        return new HttpResponse("job.html");
+        // 「経営・自営業」、「会社員」、「契約・派遣社員」、「公務員」、「民間団体」、「その他（有職）」の場合
+        if (form.getJob().equals("経営自営") || form.getJob().equals("会社員") || form.getJob().equals("契約派遣") || form.getJob().equals("公務員") || form.getJob().equals("他有職") || form.getJob().equals("民間団体")) {
+            //次のページを呼び出す(お勤め先入力ページ)
+            return new HttpResponse("job.html");
+        }
+        //学生などの場合
+        else{
+            //次のページを呼び出す(申し込み完了ページ)
+            return new HttpResponse("completed.html");
+        }
+
     }
 
     /**

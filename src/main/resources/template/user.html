@@ -103,7 +103,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>生年月日（半角８桁）</label>
+                                    <label>生年月日（８桁）</label>
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
@@ -118,7 +118,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>郵便番号（半角）</label>
+                                    <label>郵便番号</label>
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
@@ -148,11 +148,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>自宅電話番号（半角）</label>
+                                    <label>自宅電話番号</label>
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <!--<p>例：0011112222（ハイフン不要）</p>-->ハイフン不要にしました。
+                                    <p>例：0011112222（ハイフン不要）</p>
                                     <div class="field" th:classappend="${errors.hasError('homePhoneNumber')} ? 'error'">
                                         <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
                                         <p th:if="${errors.hasError('homePhoneNumber')}"
@@ -167,7 +167,7 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <!--<p>例：08011112222（ハイフン不要）</p>-->ハイフン不要にしました。
+                                    <p>例：08011112222（ハイフン不要）</p>
                                     <div class="field"
                                          th:classappend="${errors.hasError('mobilePhoneNumber')} ? 'error'">
                                         <input type="text" name="mobilePhoneNumber"
@@ -212,7 +212,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>昨年の所得（半角）</label>
+                                    <label>昨年の所得</label>
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>

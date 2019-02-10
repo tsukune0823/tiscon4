@@ -43,6 +43,7 @@ public class UserForm implements Serializable {
     @Domain("zipCode")
     private String zipCode;
 
+
     /** 住所 */
     @Required
     @Domain("address")
@@ -121,6 +122,7 @@ public class UserForm implements Serializable {
     }
 
     public void setDateOfBirth(String dateOfBirth) {
+        dateOfBirth = changeNumFullToHalf(dateOfBirth);
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -131,10 +133,12 @@ public class UserForm implements Serializable {
     }
 
     public String getZipCode() {
+        zipCode = changeNumFullToHalf(zipCode);
         return zipCode;
     }
 
     public void setZipCode(String zipCode) {
+        zipCode = changeNumFullToHalf(zipCode);
         this.zipCode = zipCode;
     }
 
@@ -147,18 +151,22 @@ public class UserForm implements Serializable {
     }
 
     public String getHomePhoneNumber() {
+        homePhoneNumber = changeNumFullToHalf(homePhoneNumber);
         return homePhoneNumber;
     }
 
     public void setHomePhoneNumber(String homePhoneNumber) {
+        homePhoneNumber = changeNumFullToHalf(homePhoneNumber);
         this.homePhoneNumber = homePhoneNumber;
     }
 
     public String getMobilePhoneNumber() {
+        mobilePhoneNumber = changeNumFullToHalf(mobilePhoneNumber);
         return mobilePhoneNumber;
     }
 
     public void setMobilePhoneNumber(String mobilePhoneNumber) {
+        mobilePhoneNumber = changeNumFullToHalf(mobilePhoneNumber);
         this.mobilePhoneNumber = mobilePhoneNumber;
     }
 
@@ -187,10 +195,12 @@ public class UserForm implements Serializable {
     }
 
     public String getIncome() {
+        income = changeNumFullToHalf(income);
         return income;
     }
 
     public void setIncome(String income) {
+        income = changeNumFullToHalf(income);
         this.income = income;
     }
 

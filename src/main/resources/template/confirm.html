@@ -40,7 +40,7 @@
                                     <label>お名前（漢字）</label>
                                 </td>
                                 <td>
-                                    <p th:text="#{form.kanjiName}">ＴＩＳ　太郎</p>
+                                    <p th:text="${form.kanjiName}">ＴＩＳ　太郎</p>
 
                                 </td>
                             </tr>
@@ -49,7 +49,7 @@
                                     <label>お名前（カタカナ）</label>
                                 </td>
                                 <td>
-                                    <p th:text="#{form.kanaName}">ティーアイエス　タロウ</p>
+                                    <p th:text="${form.kanaName}">ティーアイエス　タロウ</p>
                                 </td>
                             </tr>
                             <tr>
@@ -57,7 +57,7 @@
                                     <label>お名前（ローマ字）</label>
                                 </td>
                                 <td>
-                                    <p th:text="#{form.alphabetName}">TIS TAROU</p>
+                                    <p th:text="${form.alphabetName}">TIS TAROU</p>
                                 </td>
                             </tr>
                             <tr>
@@ -65,7 +65,7 @@
                                     <label>性別</label>
                                 </td>
                                 <td>
-                                    <p th:text="form.gender"></p>
+                                    <p th:text="${form.gender}"></p>
                                 </td>
 
                             </tr>
@@ -74,13 +74,7 @@
                                     <label>生年月日（半角）</label>
                                 </td>
                                 <td>
-                                    <p>例：1990/01/01</p>
-                                    <div class="field" th:classappend="${errors.hasError('dateOfBirth')} ? 'error'">
-                                        <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
-                                        <p th:if="${errors.hasError('dateOfBirth')}"
-                                           th:text="${errors.getMessage('dateOfBirth')}" class="error-message">
-                                        </p>
-                                    </div>
+                                    <p th:text="${form.dateOfBirth}"></p>
                                 </td>
                             </tr>
                             <tr>
@@ -88,7 +82,7 @@
                                     <label>郵便番号（半角）</label>
                                 </td>
                                 <td>
-                                    <p th:text="#{form.zipcode}">123-4567</p>
+                                    <p th:text="${form.zipcode}">123-4567</p>
                                 </td>
                             </tr>
                             <tr>
@@ -96,7 +90,7 @@
                                     <label>ご住所（全角）</label>
                                 </td>
                                 <td>
-                                    <p th:text="#{form.address}">東京都新宿区西新宿８－１７－１</p>
+                                    <p th:text="${form.address}">東京都新宿区西新宿８－１７－１</p>
 
                                 </td>
                             </tr>
@@ -105,7 +99,7 @@
                                     <label>自宅電話番号（半角）</label>
                                 </td>
                                 <td>
-                                    <p th:text="#{form.homePhoneNumber}">00-1111-2222</p>
+                                    <p th:text="${form.homePhoneNumber}">00-1111-2222</p>
                                 </td>
                             </tr>
                             <tr>
@@ -113,7 +107,7 @@
                                     <label>携帯電話番号（半角）</label>
                                 </td>
                                 <td>
-                                    <p th:text="#{form.mobilePhoneNumber}">080-0000-0000</p>
+                                    <p th:text="${form.mobilePhoneNumber}">080-0000-0000</p>
                                 </td>
                             </tr>
                             <tr>
@@ -121,7 +115,7 @@
                                     <label>メールアドレス（半角）</label>
                                 </td>
                                 <td>
-                                    <p th:text="#{form.emailAddress}">tiscon@example.com</p>
+                                    <p th:text="${form.emailAddress}">tiscon@example.com</p>
                                 </td>
                             </tr>
                             <tr>
@@ -129,7 +123,7 @@
                                     <label>配偶者有無</label>
                                 </td>
                                 <td>
-                                    <p th:text="#{form.married"}></p>
+                                    <p th:text="${form.married"}></p>
 
                                 </td>
                             </tr>
@@ -138,7 +132,7 @@
                                     <label>昨年の所得（半角）</label>
                                 </td>
                                 <td>
-                                    <p th:text=""#{form.income></p><span>万円</span>
+                                    <p th:text="|${form.income}万円|"></p>
                                 </td>
                             </tr>
                             <tr>
@@ -146,7 +140,7 @@
                                     <label>ご職業</label>
                                 </td>
                                 <td>
-                                    <p th:text="#{form.job"}></p>
+                                    <p th:text="${form.job"}></p>
                                 </td>
                             </tr>
                             <tr>
@@ -154,7 +148,7 @@
                                     <label>「その他 (有職）」を選んだ方は内容をご記入下さい（全角）</label>
                                 </td>
                                 <td>
-                                    <p th:text="#{form.otherJob}"></p>
+                                    <p th:text="${form.otherJob}"></p>
                                 </td>
                             </tr>
                             <tr>
@@ -162,7 +156,7 @@
                                     <label>過去5年以内に、病気やケガで7日間以上にわたって医師の診察・検査・治療・投薬をうけたことがありますか</label>
                                 </td>
                                 <td>
-                                    <p th:text="#{form.treated"></p>
+                                    <p th:text="${form.treated"></p>
                                 </td>
                             </tr>
                             <tr>
@@ -170,7 +164,7 @@
                                     <label>「はい」 を選んだ方は内容をご記入下さい（全角）</label>
                                 </td>
                                 <td>
-                                    <p th:text="#{form.medicalHistory}"></p>
+                                    <p th:text="${form.medicalHistory}"></p>
                                 </td>
                             </tr>
                             </tbody>

@@ -152,7 +152,7 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：0011112222（ハイフン不要）</p>
+                                    <!--<p>例：0011112222（ハイフン不要）</p>-->ハイフン不要にしました。
                                     <div class="field" th:classappend="${errors.hasError('homePhoneNumber')} ? 'error'">
                                         <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
                                         <p th:if="${errors.hasError('homePhoneNumber')}"
@@ -167,7 +167,7 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：08011112222（ハイフン不要）</p>
+                                    <!--<p>例：08011112222（ハイフン不要）</p>-->ハイフン不要にしました。
                                     <div class="field"
                                          th:classappend="${errors.hasError('mobilePhoneNumber')} ? 'error'">
                                         <input type="text" name="mobilePhoneNumber"

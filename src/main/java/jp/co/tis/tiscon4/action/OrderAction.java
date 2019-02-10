@@ -148,8 +148,8 @@ public class OrderAction {
 
         //データベースの接続
         UniversalDao.findAllBySqlFile(ZipcodeDto.class, "ZIPCODE_LIST");
+        //データベースに登録
         UniversalDao.insert(insOrder);
-
 
         return new HttpResponse("redirect://completed");
     }
@@ -220,5 +220,4 @@ public class OrderAction {
 
         return new HttpResponse("user.html");
     }
-
 }

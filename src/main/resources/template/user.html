@@ -103,11 +103,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>生年月日（半角）</label>
+                                    <label>生年月日（半角８桁）</label>
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：1990/01/01</p>
+                                    <p>例：19900101</p>
                                     <div class="field" th:classappend="${errors.hasError('dateOfBirth')} ? 'error'">
                                         <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
                                         <p th:if="${errors.hasError('dateOfBirth')}"
@@ -152,7 +152,7 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：00-1111-2222</p>
+                                    <p>例：0011112222（ハイフン不要）</p>
                                     <div class="field" th:classappend="${errors.hasError('homePhoneNumber')} ? 'error'">
                                         <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
                                         <p th:if="${errors.hasError('homePhoneNumber')}"
@@ -167,7 +167,7 @@
                                     <p style="color:red;">＊</p>
                                 </td>
                                 <td>
-                                    <p>例：080-0000-0000</p>
+                                    <p>例：08011112222（ハイフン不要）</p>
                                     <div class="field"
                                          th:classappend="${errors.hasError('mobilePhoneNumber')} ? 'error'">
                                         <input type="text" name="mobilePhoneNumber"
